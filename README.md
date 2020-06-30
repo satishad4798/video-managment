@@ -22,4 +22,10 @@ step 1: create a database named  <b> video_organise </b> <br>
 step 2: imoport database using localhost admin  <br>
 
 
+ <img src="output/1.jpg" alt="alt" width="500" height="600"> 
+ 
+ <img src="output/2.jpg" alt="alt" width="500" height="600"> 
+ 
+ <img src="output/3.jpg" alt="alt" width="500" height="600"> 
+
 
