@@ -18,8 +18,8 @@ search the videos based on tag name
 
 # how to use
 
-step 1: create a database named  <b> video_organise </b>
-step 2: imoport database using localhost admin
+step 1: create a database named  <b> video_organise </b> <br>
+step 2: imoport database using localhost admin  <br>
 
 
 
