@@ -3,11 +3,12 @@ include("config.php");
 
 $newtag=$_GET['name'];
 $id=$_GET['id'];
-$page=$_GET['page'];
+$flag=$_GET['flag'];
 echo $newtag;
 echo "<br>";
 
 
+echo "flag".$flag."<br>";
 
  $fetch = mysqli_query($con, "SELECT * FROM `videos` WHERE id=$id  ");
 
@@ -27,10 +28,11 @@ echo "<br>finaltag:".$finaltag;
    echo "<br>".$query;
               mysqli_query($con,$query);
               echo "Upload successfully.";
-              if($page=="index.php")
+
+              if($flag=="1")
               header('location:index.php');
             else
-                header('location:video2.php');
+                header('location:video2.php?filter='.$newtag);
 
 
 

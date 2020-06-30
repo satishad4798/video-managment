@@ -34,37 +34,7 @@
 
 
 
-                <script type="text/javascript">
-
-                 $(document).ready(function(){
-
-                  $('input[type=radio][name=inlineRadioOptions]').on('change', function() {
-
-                    var val=$(this).val();
-
-                    var res = val.split("xx");
-
-                    val=res[0];
-                    var  userid=res[1];
-                    console.log("val:");
-                    console.log(res[0]);
-                    console.log(res[1]);
-
-                    if(val != '')
-                    {
-                      $.ajax({  
-                        type: 'POST',  
-                        url: 'updaterating.php', 
-                        data: {rating:val,userid:userid },
-                        success: function(response) {
-                          $("#result").html(response);      
-                        }
-                      });
-                    }
-                  });
-
-                });
-              </script>
+               
 
               <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <!-- Brand/logo -->
@@ -101,9 +71,9 @@
           <br>
           <br>
 
-          <divc id="result">
-            he
-          </div>         
+       <!--    <divc id="result">
+          
+          </div>        -->  
           <div class="row m-4" style="background-color: white">
 
 
@@ -122,6 +92,8 @@
            <div class="col-sm-3" style="object-fit: fill;border-color: red;border-color: red;">   
             <?php  
             $id=$row['id'];
+          
+            $name=explode(".",$row['name']);
             $location = $row['location']; 
             $rating = $row['rating']; 
             $tags = $row['tags']; 
@@ -137,8 +109,10 @@
             <?php 
             ?>
             <div  > 
+
               <?php 
-              echo " <video src='".$location."' controls loop autoplay muted  width='300px' height='200px' >";       ?>
+              // echo ;
+              echo " <p> $name[0] </p> <video src='".$location."' controls loop autoplay muted  width='300px' height='200px' >";       ?>
               <br>
 
             </div>
@@ -158,8 +132,9 @@
            ?>
            <!-- <button onclick="myFunction()">+</button> --> 
 
-           <form action="update_tag.php?page=index.php" class="form-check-inline" method="get">
+           <form action="update_tag.php" class="form-check-inline" method="get">
             <input type="hidden" name="id" value="<?php echo $id  ?>">
+                  <input type="hidden" name="flag" value="1">
             <input type="text" name="name" placeholder="+ tag" style="width: 70px"><br>
 
             <div class="form-check form-check-inline">
@@ -262,6 +237,37 @@ while($row = mysqli_fetch_assoc($fetchVideos)){
 <br><br>
 
 </div>
+ <script type="text/javascript">
+
+                 $(document).ready(function(){
+
+                  $('input[type=radio][name=inlineRadioOptions]').on('change', function() {
+
+                    var val=$(this).val();
+
+                    var res = val.split("xx");
+
+                    val=res[0];
+                    var  userid=res[1];
+                    console.log("val:");
+                    console.log(res[0]);
+                    console.log(res[1]);
+
+                    if(val != '')
+                    {
+                      $.ajax({  
+                        type: 'POST',  
+                        url: 'updaterating.php', 
+                        data: {rating:val,userid:userid },
+                        success: function(response) {
+                          $("#result").html(response);      
+                        }
+                      });
+                    }
+                  });
+
+                });
+              </script>
 <script type="text/javascript">
 
 

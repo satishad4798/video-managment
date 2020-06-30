@@ -64,9 +64,9 @@
             <br>
             
 
-            <!-- <divc id="result">
-              //rating check
-            </div>  --> 
+           <!--  <divc id="result">
+             
+            </div>   -->
             <div class="row m-4" >
 
               <div class="col-sm-8" style="background:  #eaeae1">
@@ -92,9 +92,12 @@
               $rating = $row['rating']; 
               $tags = $row['tags']; 
               $tag_list=(explode(",",$tags));
+              $name=explode(".",$row['name']);
+
               ?>
               <div > 
-               <video src='<?php echo $location  ?>' controls loop autoplay muted  width='100%'  >
+                <p> <?php echo $name[0];  ?> </p>
+               <video src='<?php echo $location  ?>' controls loop autoplay muted  width='100%' height="400px";  >
 
                </div>
                <?php 
@@ -110,6 +113,8 @@
                <!-- <button onclick="myFunction()">+</button> -->
                <form action="update_tag.php?page=video2.php" class="form-check-inline" method="get">
                 <input type="hidden" name="id" value="<?php echo $id  ?>">
+                  <input type="hidden" name="flag" value="2">
+
                 <input type="text"    name="name" placeholder="+ tag" style="width: 70px"><br>
                 <!--  <div class="autocomplete" style="width:300px;">
                 <input class="bg-white" id="myInput2" type="text" name="name" placeholder="search tags">
@@ -206,7 +211,7 @@
 
 </div>
 </div>    
-<div  class="overflow-auto col-sm-4 " style=" max-height:700px; margin-top: -7%;background-color:  #ffffff">
+<div  class="overflow-auto col-sm-4 " style=" max-height:800px; margin-top: -7%;background-color:  #ffffff">
 <!--               <div class="col-sm-3 " style="background: green">
 -->
 <?php
@@ -227,14 +232,28 @@ while($row = mysqli_fetch_assoc($fetchVideos)){ ?>
   $rating = $row['rating']; 
   $tags = $row['tags']; 
   $tag_list=(explode(",",$tags));
+    $name=explode(".",$row['name']);
   ?>
 
   <div class="bg-dark"> 
+
+
     <video src='<?php echo $location  ?>' controls loop autoplay muted  width='100%' height='200px' >
                 <!--  <?php 
                // echo " <video src='".$location."' controls loop autoplay muted  width='300px' height='200px' >"; ?>
              -->        </div>
-             <button class="btn btn-success" onclick="window.location.href='video2.php?watch_id=<?php echo $id ?> '">Watch</button>
+             <div class="row">
+            <div class="col-sm-3">
+                              <button class="btn form-check-inline btn-success" onclick="window.location.href='video2.php?watch_id=<?php echo $id ?> '">Watch </button>
+
+            </div>
+            <div class="col">
+                           <p> <?php echo $name[0]; ?></p>
+
+            </div>
+               
+             </div>
+           
              <hr>
 
            </div>
