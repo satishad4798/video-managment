@@ -158,7 +158,7 @@
            ?>
            <!-- <button onclick="myFunction()">+</button> --> 
 
-           <form action="update_tag.php" class="form-check-inline" method="get">
+           <form action="update_tag.php?page=index.php" class="form-check-inline" method="get">
             <input type="hidden" name="id" value="<?php echo $id  ?>">
             <input type="text" name="name" placeholder="+ tag" style="width: 70px"><br>
 

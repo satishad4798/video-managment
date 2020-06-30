@@ -3,6 +3,7 @@ include("config.php");
 
 $newtag=$_GET['name'];
 $id=$_GET['id'];
+$page=$_GET['page'];
 echo $newtag;
 echo "<br>";
 
@@ -26,8 +27,11 @@ echo "<br>finaltag:".$finaltag;
    echo "<br>".$query;
               mysqli_query($con,$query);
               echo "Upload successfully.";
+              if($page=="index.php")
+              header('location:index.php');
+            else
+                header('location:video2.php');
 
-              header('location:video2.php');
 
 
 ?>
