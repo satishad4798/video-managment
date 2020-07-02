@@ -8,19 +8,22 @@
                 <link rel="stylesheet" type="text/css" href="css/style.css">
                 <link rel="stylesheet" type="text/css" href="css/search.css">
                 <link rel="stylesheet" type="text/css" href="css/rating.css">
-
+<!--                      <script type="js/jQuery v3_4_1.js"></script>
+ -->
+<!-- 
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <link rel="stylesheet" href="css/style.css">
                 <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
                 <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
                 <link rel='stylesheet' href='https://raw.githubusercontent.com/kartik-v/bootstrap-star-rating/master/css/star-rating.min.css'>
 
-                <script
-                src="https://code.jquery.com/jquery-3.4.1.min.js"
-                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-                crossorigin="anonymous"></script>
+           -->
 
-                <style>
+
+                 <script
+                src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
 
                   <style>
                   video{
@@ -211,7 +214,7 @@
 
 </div>
 </div>    
-<div  class="overflow-auto col-sm-4 " style=" max-height:800px; margin-top: -7%;background-color:  #ffffff">
+<div  class="overflow-auto col-sm-4 " style=" max-height:800px;background-color:  #ffffff">
 <!--               <div class="col-sm-3 " style="background: green">
 -->
 <?php
@@ -304,8 +307,8 @@ while($row = mysqli_fetch_assoc($fetchVideos)){ ?>
        // var countries=["a","Saudi","display","dsds"];
      </script>
 
-     <script type="js/jQuery_v3_5.js"></script>
-
+<!--      <script type="js/jQuery_v3_5.js"></script>
+ -->
      <script type="js/myjquery.js"></script>
 
 <!--      <script src="js/jquery.slim.min.js"></script>
