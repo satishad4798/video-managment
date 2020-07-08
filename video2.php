@@ -109,7 +109,7 @@
                foreach ($tag_list as $tt) {
             //     echo  "<a style=\"height: 20px\" class=\"badge badge-pill badge-dark\" href=\"video.php?filter=$tt\">$tt</a>  ";   
                 if($tt!="")
-                 echo  "<button class='btn btn-sm mr-2 btn-primary rounded-circle   text-white' onclick=\"window.location.href='video.php?filter=$tt'\">$tt</button>";
+                 echo  "<button class='btn btn-sm mr-2 btn-primary rounded-circle   text-white' onclick=\"window.location.href='index.php?filter=$tt'\">$tt</button>";
 
                }
                ?>
