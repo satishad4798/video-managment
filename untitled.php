@@ -2,151 +2,161 @@
               include("config.php");
               ?>
               <!doctype html>
-              <html lang="en">
+              <html>
 
               <head>
-                <!-- Required meta tags -->
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
                 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
                 <link rel="stylesheet" type="text/css" href="css/style.css">
                 <link rel="stylesheet" type="text/css" href="css/search.css">
                 <link rel="stylesheet" type="text/css" href="css/rating.css">
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                <!--                  <script type="js/jQuery v3_4_1.js"></script>
+ -->
+                <!-- 
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <link rel="stylesheet" href="css/style.css">
+                <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+                <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+                <link rel='stylesheet' href='https://raw.githubusercontent.com/kartik-v/bootstrap-star-rating/master/css/star-rating.min.css'>
+ -->
 
                 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-
+                <style>
+                  <style>video {
+                    float: left;
+                  }
+                </style>
               </head>
 
-              <body style="background-color: black;">
+              <body>
+                <div>
 
 
-                <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                  <!-- Brand/logo -->
-                  <a class="navbar-brand" href="#">
-                    <img src="./icons/nav.png" alt="logo" style="width:40px;align-content: center;margin-top: -25%">
-                  </a>
-
-                  <!-- Links -->
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php">view 1</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="video2.php">view 2</a>
-                    </li>
 
 
-                  </ul>
-                  <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                      <!-- <button  class="btn btn-primary  nav-link mr-auto"  href="addvideo.php">add videos</button> -->
-                      <a class="nav-link" href="addvideo.php">add videos</a>
-
-                    </li>
-                  </ul>
-                </nav>
-
-                <form autocomplete="off" action="index.php" style="margin-left: 2%">
-                  <div class="autocomplete" style="width:300px;">
-                    <input id="myInput" type="text" name="filter" placeholder=" search tags">
-                  </div>
-                  <input type="submit">
-                </form>
-
-                <br>
-
-                <div class="row m-2">
 
 
-                  <?php
-                  if (isset($_GET['filter']) and $_GET['filter'] != 'any') {
-                    $filter = $_GET['filter'];
-                    $fetchVideos = mysqli_query($con, "SELECT * FROM videos WHERE tags LIKE '%$filter%' ");
-                  } else
-                    $fetchVideos = mysqli_query($con, "SELECT * FROM videos ORDER BY rating DESC");
+                  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <!-- Brand/logo -->
+                    <a class="navbar-brand" href="#">
+                      <img src="./icons/nav.png" alt="logo" style="width:40px;align-content: center;margin-top: -25%">
+                    </a>
+
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.php">view 1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="video2.php">view 2</a>
+                      </li>
 
 
-                  while ($row = mysqli_fetch_assoc($fetchVideos)) { ?>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <!-- <button  class="btn btn-primary  nav-link mr-auto"  href="addvideo.php">add videos</button> -->
+                        <a class="nav-link" href="addvideo.php">add videos</a>
 
-                    <div class="col-12 col-md-6 col-lg-3  border border-primary rounded">
-                      <?php
-                      $id = $row['id'];
+                      </li>
+                    </ul>
+                  </nav>
 
-                      $name = explode(".", $row['name']);
-                      $location = "videos/" . $row['location'];
-                      $rating = $row['rating'];
-                      $tags = $row['tags'];
-                      $tag_list = (explode(",", $tags));
-                      // print_r($tag_list);
+                  <form autocomplete="off" action="index.php" style="margin-left: 2%">
+                    <div class="autocomplete" style="width:300px;">
+                      <input id="myInput" type="text" name="filter" placeholder=" search tags">
+                    </div>
+                    <input type="submit">
+                  </form>
+
+                  <br>
+
+                  <div class="row m-4" style="background-color: white">
 
 
-                      // echo $tags;
-                      // <a href="/link/to/page2">Continue</a>
-                      ?>
+                    <?php
+                    if (isset($_GET['filter']) and $_GET['filter'] != 'any') {
+                      $filter = $_GET['filter'];
+                      $fetchVideos = mysqli_query($con, "SELECT * FROM videos WHERE tags LIKE '%$filter%' ");
+                    } else
+                      $fetchVideos = mysqli_query($con, "SELECT * FROM videos ORDER BY rating DESC");
 
 
-                      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-                      </script>
-                      <script src="js/jquery.hoverplay.js"></script>
+                    while ($row = mysqli_fetch_assoc($fetchVideos)) {
+                    ?>
 
-                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                      <script>
-                        var $video = $('.video');
+                      <div class="col-sm-3" style="object-fit: fill;border-color: red;border-color: red;">
+                        <?php
+                        $id = $row['id'];
 
-                        $video.on('mouseover', show);
-                        $video.on('mouseleave', hide);
+                        $name = explode(".", $row['name']);
+                        $location = "videos/" . $row['location'];
+                        $rating = $row['rating'];
+                        $tags = $row['tags'];
+                        $tag_list = (explode(",", $tags));
+                        // print_r($tag_list);
 
-                        function show() {
-                          $(this).attr('controls', '');
-                          this.play();
+
+                        // echo $tags;
+                        // <a href="/link/to/page2">Continue</a>
+                        ?>
+
+
+
+
+
+
+                        <div>
+                          <video width='100%' height='100%' controls="controls" preload="metadata">
+                            <source src="<?php echo $location ?>#t=0.5" type="video/mp4">
+                          </video>
+
+
+
+                          <br>
+
+                        </div>
+
+                        <!-- indivisual video tag link -->
+                        <!--                              <img src="icons/add.png" style="height: 15px" onclick="">-->
+                        <button class='pill_button text-white' onclick="window.location.href='video2.php?watch_id=<?php echo $id ?> '">Watch</button>
+
+                        <?php
+                        echo "Tags: ";
+                        $count = 0;
+                        foreach ($tag_list as $tt) {
+                          if ($tt != "")
+                            echo  "<button class='btn btn-sm mr-2 btn-primary rounded-circle   text-white' onclick=\"window.location.href='video2.php?filter=$tt'\">$tt</button>";
                         }
+                        ?>
+                        <!-- <button onclick="myFunction()">+</button> -->
 
-                        function hide() {
-                          var isPlaying = false;
-                          this.pause();
+                       
 
-                          this.onplaying = function() {
-                            isPlaying = true;
-                          }
 
-                          if (!isPlaying) {
-                            $(this).removeAttr('controls');
-                          }
-                        }
-                      </script>
-
-                      <div>
-                        <video width='100%' height='100%' class="video" muted preload=" metadata">
-                          <source src="<?php echo $location ?>#t=10,30" type="video/mp4">
-                        </video>
-
-                        <!-- <video width="320" height="240" controls muted="muted" data-play="hover">
-                          <source src="<?php echo $location ?>" type="video/mp4">
-                          <source src="movie.ogg" type="video/ogg">
-                          Your browser does not support the video tag.
-                        </video> -->
 
                       </div>
 
-                      <!-- indivisual video tag link -->
-                      <!--                              <img src=" icons/add.png" style="height: 15px" onclick="">-->
-                      <a href="video2.php?watch_id=<?php echo $id ?>">Watch</a>
+                    <?php
 
+                    }
+                    ?>
 
-                    </div>
-
-                  <?php
-
-                  }
-                  ?>
-
+                  </div>
                 </div>
 
+                <!-- all tags -->
+                <?php
+                $fetchVideos = mysqli_query($con, "SELECT tags FROM videos ORDER BY id DESC");
+                $alltags = "";
+                while ($row = mysqli_fetch_assoc($fetchVideos)) {
 
-                <!-- tags -->
+                  $tags = $row['tags'];
+                  $alltags = $alltags . "," . $tags;
+                }
+
+                //echo $alltags;
+                ?>
                 <div style="margin-left: 20px">
 
                   <?php
@@ -175,8 +185,6 @@
                   <br><br>
 
                 </div>
-                <!-- tags -->
-
                 <script type="text/javascript">
                   $(document).ready(function() {
 
@@ -215,7 +223,13 @@
                   // var countries=["a","Saudi","display","dsds"];
                 </script>
 
+                <!--      <script type="js/jQuery_v3_5.js"></script>
+ -->
                 <script type="js/myjquery.js"></script>
+
+                <!--      <script src="js/jquery.slim.min.js"></script>
+-->
+                <!-- <script src="js/popper.js"></script> -->
                 <script src="js/bootstrap.bundle.min.js"></script>
                 <script src="js/search.js"></script>
 
